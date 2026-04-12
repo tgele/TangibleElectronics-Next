@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Link from 'next/link'
 
 import Script from 'dangerous-html/react'
+import PropTypes from 'prop-types'
 import { useTranslations } from 'next-intl'
 
 const Navigation = (props) => {
@@ -304,6 +306,26 @@ const Navigation = (props) => {
             ></Script>
           </div>
         </div>
+        <nav className="navigation-thq-navlinks-elm">
+          <Link href="/">
+            <a>
+              {props.text ?? (
+                <Fragment>
+                  <span className="navigation-text28">Home</span>
+                </Fragment>
+              )}
+            </a>
+          </Link>
+          <Link href="/compliance-certifications">
+            <a>
+              {props.text1 ?? (
+                <Fragment>
+                  <span className="navigation-text29">Page</span>
+                </Fragment>
+              )}
+            </a>
+          </Link>
+        </nav>
       </div>
       <style jsx>
         {`
@@ -321,10 +343,31 @@ const Navigation = (props) => {
           .navigation-container3 {
             display: contents;
           }
+          .navigation-thq-navlinks-elm {
+            gap: 16px;
+            display: flex;
+            align-items: center;
+          }
+          .navigation-text28 {
+            display: inline-block;
+          }
+          .navigation-text29 {
+            display: inline-block;
+          }
         `}
       </style>
     </>
   )
+}
+
+Navigation.defaultProps = {
+  text: undefined,
+  text1: undefined,
+}
+
+Navigation.propTypes = {
+  text: PropTypes.element,
+  text1: PropTypes.element,
 }
 
 export default Navigation

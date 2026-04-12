@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Link from 'next/link'
 
 import Script from 'dangerous-html/react'
+import PropTypes from 'prop-types'
 import { useTranslations } from 'next-intl'
 
 const Footer = (props) => {
@@ -9,10 +11,10 @@ const Footer = (props) => {
       <div className="footer-container1">
         <footer className="footer-root">
           <div className="footer-container">
-            <div className="footer-grid">
+            <div className="footer-grid footer-thq-footer-grid-elm">
               <div className="footer-col footer-col-brand">
                 <div className="footer-logo-wrap">
-                  <span className="footer-brand-name">Vaprosafe</span>
+                  <span className="footer-brand-name">守護生命的科技</span>
                 </div>
                 <p className="section-content footer-description">
                   專業提供 Draeger 個人防護裝備
@@ -184,22 +186,27 @@ const Footer = (props) => {
               </div>
             </div>
             <div className="footer-bottom">
-              <div className="footer-bottom-inner">
-                <p className="footer-copyright">© 2026 XRP 589</p>
-                <div className="footer-legal">
-                  <a href="#">
-                    <div className="footer-legal-link">
-                      <span>隱私條款</span>
+              <Link href="/compliance-certifications">
+                <a>
+                  <div className="footer-thq-footer-bottom-inner-elm footer-bottom-inner">
+                    <p className="footer-copyright">© 2026 XRP 589</p>
+                    <div className="footer-legal">
+                      <div className="footer-legal-link">
+                        <span>隱私條款</span>
+                      </div>
+                      <span className="footer-legal-divider"></span>
+                      <div className="footer-legal-link">
+                        <span>
+                          <span>
+                            「天基電子工業有限公司資訊安全防範管理規章」
+                          </span>
+                          <br></br>
+                        </span>
+                      </div>
                     </div>
-                  </a>
-                  <span className="footer-legal-divider"></span>
-                  <a href="#">
-                    <div className="footer-legal-link">
-                      <span>服務條款</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
+                  </div>
+                </a>
+              </Link>
             </div>
           </div>
         </footer>
@@ -234,11 +241,34 @@ const Footer = (props) => {
             ></Script>
           </div>
         </div>
+        <nav className="footer-thq-navlinks-elm">
+          <Link href="/">
+            <a>
+              {props.text2 ?? (
+                <Fragment>
+                  <span className="footer-text19">Home</span>
+                </Fragment>
+              )}
+            </a>
+          </Link>
+          <Link href="/compliance-certifications">
+            <a>
+              {props.text3 ?? (
+                <Fragment>
+                  <span className="footer-text20">Page</span>
+                </Fragment>
+              )}
+            </a>
+          </Link>
+        </nav>
       </div>
       <style jsx>
         {`
           .footer-container1 {
             display: contents;
+          }
+          .footer-thq-footer-bottom-inner-elm {
+            text-decoration: none;
           }
           .footer-container2 {
             display: none;
@@ -246,10 +276,37 @@ const Footer = (props) => {
           .footer-container3 {
             display: contents;
           }
+          .footer-thq-navlinks-elm {
+            gap: 16px;
+            display: flex;
+            align-items: center;
+          }
+          .footer-text19 {
+            display: inline-block;
+          }
+          .footer-text20 {
+            display: inline-block;
+          }
+          @media (max-width: 1200px) {
+            .footer-thq-footer-grid-elm {
+              height: 267px;
+              margin-bottom: 0px;
+            }
+          }
         `}
       </style>
     </>
   )
+}
+
+Footer.defaultProps = {
+  text2: undefined,
+  text3: undefined,
+}
+
+Footer.propTypes = {
+  text2: PropTypes.element,
+  text3: PropTypes.element,
 }
 
 export default Footer

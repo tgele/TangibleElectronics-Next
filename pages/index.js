@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Head from 'next/head'
 
 import Script from 'dangerous-html/react'
@@ -23,7 +23,18 @@ const Home = (props) => {
             content="https://best-funny-eland-kli7f5.teleporthq.app/"
           />
         </Head>
-        <Navigation></Navigation>
+        <Navigation
+          text={
+            <Fragment>
+              <span className="home-text10">Home</span>
+            </Fragment>
+          }
+          text1={
+            <Fragment>
+              <span className="home-text11">Page</span>
+            </Fragment>
+          }
+        ></Navigation>
         <section className="hero-overview">
           <div className="hero-media-container">
             <video
@@ -37,14 +48,22 @@ const Home = (props) => {
             <div className="hero-overlay"></div>
           </div>
           <div className="hero-content-wrapper">
-            <div className="hero-content-block">
-              <h1 className="home-hero-title hero-title">
-                守護台灣產業安全：頂尖 Draeger 呼吸防護與氣體偵測方案
-              </h1>
-              <p className="hero-subtitle home-hero-subtitle">
-                Vaprosafe 為半導體、石化及醫療產業提供專業級 Draeger
-                PPE、氣體偵測器、PAPR 及 SCBA
-                解決方案，確保您在嚴苛環境下的絕對安全。
+            <div className="hero-content-block home-thq-hero-content-block-elm">
+              <p className="hero-subtitle home-hero-subtitle home-thq-hero-subtitle-elm">
+                <span className="home-text12">
+                  守護生命的科技
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: ' ',
+                    }}
+                  />
+                </span>
+                <br className="home-text13"></br>
+                <span>
+                  Draeger 呼吸防護與氣體偵測方案石化及醫療產業提供專業級
+                  PPE、氣體偵測器、PAPR 及 SCBA
+                  解決方案，確保您在嚴苛環境下的絕對安全。
+                </span>
               </p>
               <div className="hero-cta-group">
                 <a href="#products">
@@ -53,7 +72,7 @@ const Home = (props) => {
                   </div>
                 </a>
                 <a href="#contact">
-                  <div className="btn btn-outline btn-lg">
+                  <div className="btn btn-outline btn-lg home-thq-btn-elm11">
                     <span>聯繫專家</span>
                   </div>
                 </a>
@@ -696,7 +715,18 @@ section {
             ></Script>
           </div>
         </div>
-        <Footer></Footer>
+        <Footer
+          text2={
+            <Fragment>
+              <span className="home-text39">Home</span>
+            </Fragment>
+          }
+          text3={
+            <Fragment>
+              <span className="home-text40">Page</span>
+            </Fragment>
+          }
+        ></Footer>
         <a href="https://play.teleporthq.io/signup">
           <div aria-label="Sign up to TeleportHQ" className="home-container6">
             <svg
@@ -720,7 +750,7 @@ section {
                 fill="#2874DE"
               ></path>
             </svg>
-            <span className="home-text34">Built in TeleportHQ</span>
+            <span className="home-text41">Built in TeleportHQ</span>
           </div>
         </a>
       </div>
@@ -730,6 +760,12 @@ section {
             width: 100%;
             display: block;
             min-height: 100vh;
+          }
+          .home-text10 {
+            display: inline-block;
+          }
+          .home-text11 {
+            display: inline-block;
           }
           .home-container2 {
             display: none;
@@ -742,6 +778,12 @@ section {
           }
           .home-container5 {
             display: contents;
+          }
+          .home-text39 {
+            display: inline-block;
+          }
+          .home-text40 {
+            display: inline-block;
           }
           .home-container6 {
             right: 50px;
@@ -765,14 +807,49 @@ section {
             width: 24px;
             margin-right: 4px;
           }
-          .home-text34 {
+          .home-text41 {
             color: white;
             font-size: 13px;
             font-style: normal;
             font-weight: 500;
             line-height: 24px;
           }
+          @media (max-width: 1600px) {
+            .home-text12 {
+              font-size: 48px;
+            }
+            .home-text13 {
+              font-size: 48px;
+            }
+            .home-thq-btn-elm11 {
+              background-color: #1e4e8a;
+            }
+          }
           @media (max-width: 1200px) {
+            .home-thq-hero-content-block-elm {
+              width: 946px;
+              height: 478px;
+              margin-right: 322px;
+              padding-right: 0px;
+            }
+            .home-thq-hero-subtitle-elm {
+              width: 816px;
+              height: 139px;
+              margin-right: 175px;
+            }
+            .home-text12 {
+              font-size: 32px;
+              text-align: center;
+              text-transform: uppercase;
+            }
+            .home-text13 {
+              font-size: 32px;
+              text-align: center;
+              text-transform: uppercase;
+            }
+            .home-thq-btn-elm11 {
+              background-color: #1e4e8a;
+            }
             .home-thq-product-image-wrapper-elm3 {
               padding-top: 0px;
             }
